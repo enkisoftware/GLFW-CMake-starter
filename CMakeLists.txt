@@ -5,6 +5,7 @@ project( CMake-GLFW-starter )
 find_package( OpenGL REQUIRED )
 
 include_directories( "glfw/include" )
+include_directories( ${OPENGL_INCLUDE_DIRS} )
 
 set( GLFW_BUILD_EXAMPLES OFF CACHE BOOL  "GLFW lib only" )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL  "GLFW lib only" )
