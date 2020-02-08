@@ -24,3 +24,10 @@ set( CMAKE-GLFW-STARTER-SRC
      
 add_executable( CMake-GLFW-starter ${CMAKE-GLFW-STARTER-SRC} )
 target_link_libraries( CMake-GLFW-starter ${OPENGL_LIBRARIES} glfw ${GLFW_LIBRARIES} )
+if( MSVC )
+    if(${CMAKE_VERSION} VERSION_LESS "3.6.0") 
+        message( "\n\t[ WARNING ]\n\n\tCMake version lower than 3.6.\n\n\t - Please update CMake and rerun; OR\n\t - Manually set 'CMake-GLFW-starter' as StartUp Project in Visual Studio.\n" )
+    else()
+        set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT CMake-GLFW-starter )
+    endif()
+endif()
