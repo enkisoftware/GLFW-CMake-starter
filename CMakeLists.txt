@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 2.8 )
 
-project( CMake-GLFW-starter )
+project( GLFW-CMake-starter )
 
 find_package( OpenGL REQUIRED )
 
@@ -18,16 +18,16 @@ if( WIN32 )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup" )
 endif()
 
-set( CMAKE-GLFW-STARTER-SRC
+set( GLFW-CMAKE-STARTER-SRC
      main.cpp
      )
      
-add_executable( CMake-GLFW-starter ${CMAKE-GLFW-STARTER-SRC} )
-target_link_libraries( CMake-GLFW-starter ${OPENGL_LIBRARIES} glfw ${GLFW_LIBRARIES} )
+add_executable( GLFW-CMake-starter ${GLFW-CMAKE-STARTER-SRC} )
+target_link_libraries( GLFW-CMake-starter ${OPENGL_LIBRARIES} glfw ${GLFW_LIBRARIES} )
 if( MSVC )
     if(${CMAKE_VERSION} VERSION_LESS "3.6.0") 
-        message( "\n\t[ WARNING ]\n\n\tCMake version lower than 3.6.\n\n\t - Please update CMake and rerun; OR\n\t - Manually set 'CMake-GLFW-starter' as StartUp Project in Visual Studio.\n" )
+        message( "\n\t[ WARNING ]\n\n\tCMake version lower than 3.6.\n\n\t - Please update CMake and rerun; OR\n\t - Manually set 'GLFW-CMake-starter' as StartUp Project in Visual Studio.\n" )
     else()
-        set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT CMake-GLFW-starter )
+        set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT GLFW-CMake-starter )
     endif()
 endif()
