@@ -37,5 +37,4 @@ From a command prompt in the `GLFW-CMake-starter` directory:
 1. `cd build`
 1. `cmake ..`
 1. Either run `make all` or for Visual Studio open `GLFW-CMake-starter.sln`
-    
-The _GLFW-CMake-starter_ Window should open.
+
