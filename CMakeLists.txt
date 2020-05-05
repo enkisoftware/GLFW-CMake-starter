@@ -11,7 +11,7 @@ set( GLFW_BUILD_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 
 add_subdirectory( glfw )
 
-if( WIN32 )
+if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
 endif()
 
