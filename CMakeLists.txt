@@ -12,14 +12,14 @@ set( GLFW_BUILD_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 add_subdirectory( glfw )
 
 if( WIN32 )
-    SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup" )
+    SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
 endif()
 
 set( GLFW-CMAKE-STARTER-SRC
      main.cpp
      )
      
-add_executable( GLFW-CMake-starter ${GLFW-CMAKE-STARTER-SRC} )
+add_executable( GLFW-CMake-starter WIN32 ${GLFW-CMAKE-STARTER-SRC} )
 target_link_libraries( GLFW-CMake-starter ${OPENGL_LIBRARIES} glfw )
 if( MSVC )
     if(${CMAKE_VERSION} VERSION_LESS "3.6.0") 
