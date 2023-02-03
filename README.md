@@ -36,5 +36,5 @@ From a command prompt in the `GLFW-CMake-starter` directory:
 1. `mkdir build`
 1. `cd build`
 1. `cmake ..`
-1. Either run `make all` or for Visual Studio open `GLFW-CMake-starter.sln`
+1. Either run `make all` or for Visual Studio open `GLFW-CMake-starter.sln` or for MinGW run `mingw32-make`
 
