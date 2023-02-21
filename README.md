@@ -35,6 +35,6 @@ If you download the code from GitHub via the "Download ZIP" approach, you'll als
 From a command prompt in the `GLFW-CMake-starter` directory:
 1. `mkdir build`
 1. `cd build`
-1. `cmake ..` (to specify build system generator, use -G option, e.g. for MinGW: `cmake .. -G "MinGW Makefiles`)
+1. `cmake ..` (for MinGW the build system generator needs to be specified using the -G option: `cmake .. -G "MinGW Makefiles"`)
 1. Either run `make all` or for Visual Studio open `GLFW-CMake-starter.sln` or for MinGW run `mingw32-make`
 
