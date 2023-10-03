@@ -1,38 +1,54 @@
 #include <GLFW/glfw3.h>
+#include <bits/stdc++.h>
 
-int main(void)
-{
+int main() {
     GLFWwindow* window;
 
-    /* Initialize the library */
-    if (!glfwInit())
-        return -1;
-
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "GLFW CMake starter", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
+    if (!glfwInit()) {
+        exit(EXIT_FAILURE);
     }
 
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-    glClearColor( 0.4f, 0.3f, 0.4f, 0.0f );
+    const std::pair<int, int> windowDim(640, 480);
+    window = glfwCreateWindow(windowDim.first, windowDim.second, "asdf", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+        exit(EXIT_FAILURE);
+    }
 
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
-        /* Render here */
+    // Make Context
+    glfwMakeContextCurrent(window);
+
+    // Print something
+    std::cout << "Starting program" << std::endl;
+
+    float ratio;
+    int width, height;
+
+    glfwGetFramebufferSize(window, &width, &height);
+    ratio = (float)width / (float)height;
+    std::cout << "framebuffer sizes: width " << width << ", height " << height << std::endl;
+
+    // Loop
+    while (!glfwWindowShouldClose(window)) {
+        glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
+        // Begin mode: draw points
+        glBegin(GL_POINTS);
+        for (int i = 0; i < 2*width; i++) {
+            for (int j = 0; j < 2*height; j++) {
+                glColor3f((float)j/(float)height,(float)i/(float)width,1.f);
+                glVertex2f((float)j/(float)height-1.f,(float)i/(float)width-1.f);
+            }
+        }
+        glEnd();
 
-        /* Poll for and process events */
+        // Swap front/back buffers
+        glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+    glfwDestroyWindow(window);
     glfwTerminate();
-    return 0;
+    exit(EXIT_SUCCESS);
 }
