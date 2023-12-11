@@ -11,7 +11,12 @@ set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 set( GLAD_GL "${GLFW_SOURCE_DIR}/deps/glad/gl.h"  "${GLFW_SOURCE_DIR}/deps/glad_gl.c" )
 
 add_subdirectory( glfw )
-include_directories("${GLFW_SOURCE_DIR}/deps")
+
+option( GLFW-CMAKE-STARTER-USE-GLFW-GLAD "Use GLAD from GLFW" ON )
+
+if( GLFW-CMAKE-STARTER-USE-GLFW-GLAD )
+    include_directories("${GLFW_SOURCE_DIR}/deps")
+endif()
 
 if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
